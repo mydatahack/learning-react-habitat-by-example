@@ -1,8 +1,9 @@
 import ReactHabitat from 'react-habitat';
 import FormComponent from './FormComponent';
+import InformationComponent from './InformationComponent';
 import './scss/main.scss';
 
-class MyApp extends ReactHabitat.Bootstrapper {
+class LearnReactHabitat extends ReactHabitat.Bootstrapper {
   constructor(){
       super();
 
@@ -11,7 +12,7 @@ class MyApp extends ReactHabitat.Bootstrapper {
 
       // Register a component:
       builder.register(FormComponent).as('FormComponent');
-
+      builder.register(InformationComponent).as('InformationComponent');
 
       // Finally, set the container:
       this.setContainer(builder.build());
@@ -19,4 +20,4 @@ class MyApp extends ReactHabitat.Bootstrapper {
 }
 
 // Always export a 'new' instance so it immediately evokes:
-export default new MyApp();
+export default new LearnReactHabitat();

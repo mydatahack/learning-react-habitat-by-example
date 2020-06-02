@@ -10,3 +10,5 @@ class InformationComponent extends React.Component {
     return <p>Here is the component for form information.</p>
   }
 }
+
+export default InformationComponent;
