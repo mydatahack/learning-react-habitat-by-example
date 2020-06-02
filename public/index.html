@@ -25,6 +25,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React Habitat Example</title>
+
+    <script>
+      window.formData = {
+              "firstName": "",
+              "lastName": "",
+              "email": "",
+              "mobile": "",
+              "favouriteFramework": ""
+            };
+    </script>
   </head>
   <body>
     
@@ -40,12 +50,12 @@
           <div 
             data-component="FormComponent"
             data-prop-form-title="Personal Information"
-            data-r-prop-form-data="{}"></div>
+            data-r-prop-form-data='formData'></div>
         </div>
         <div class="md-col-6 d-flex justify-content-center">
           <div 
             data-component="InformationComponent"
-            data-r-prop-form-data="{}"></div>
+            ></div>
         </div>
       </div>
     </div>
