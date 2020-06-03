@@ -1,4 +1,4 @@
-# learning-react-habitat-by-example
+# (1) learning-react-habitat-by-example
 
 Learning [react-habitat](https://github.com/DeloitteDigitalAPAC/react-habitat) library by creating a simple app. react-habitat is an open-source library created by [Deloitte](https://www2.deloitte.com/). useful if you want to mount multiple components in a page. The main features that we are using in this repo is:
 
@@ -79,6 +79,16 @@ global.window.formData = {
   mobile,
   favouriteFramework,
 };
+```
+
+# (2) Adding Schematik Form
+
+Learning [Schematik Form](https://github.com/DeloitteDigitalAPAC/schematik-forms) by example.
+
+## Install
+
+```bash
+npm i --save schematik-forms formik@1
 ```
 
 # REFERENCES
