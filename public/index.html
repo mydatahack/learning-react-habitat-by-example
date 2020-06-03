@@ -27,7 +27,7 @@
     <title>React Habitat Example</title>
 
     <script>
-      window.formData = {
+      var formData = window.formData = {
               "firstName": "",
               "lastName": "",
               "email": "",
@@ -55,6 +55,8 @@
         <div class="md-col-6 d-flex justify-content-center">
           <div 
             data-component="InformationComponent"
+            data-r-prop-form-data='formData'
+            class="info-container"
             ></div>
         </div>
       </div>

@@ -14,6 +14,8 @@ class LearnReactHabitat extends ReactHabitat.Bootstrapper {
     builder.register(FormComponent).as('FormComponent');
     builder.register(InformationComponent).as('InformationComponent');
 
+    // eslint-disable-next-line no-undef
+    window.updateHabitat = this.update.bind(this);
     // Finally, set the container:
     this.setContainer(builder.build());
   }

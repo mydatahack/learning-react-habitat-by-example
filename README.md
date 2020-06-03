@@ -3,7 +3,7 @@
 Learning [react-habitat](https://github.com/DeloitteDigitalAPAC/react-habitat) library by creating a simple app. react-habitat is an open-source library created by [Deloitte](https://www2.deloitte.com/). useful if you want to mount multiple components in a page. The main features that we are using in this repo is:
 
 - Mounting multiple components in a single HTML page
-- Sharing prop data between component through data attributes on html
+- Experiments on sharing prop data between component through data attributes on html
 - Adding custom css for styling
 
 
@@ -36,7 +36,50 @@ npm run build
 # Run tests
 npm test
 ```
+# Notes
 
+To access global variable through the window object, we first need to have the script tag to define it.
+
+```html
+<script>
+  var formData = window.formData = {
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "mobile": "",
+    "favouriteFramework": ""
+  };
+</script>
+
+...
+
+<div 
+  data-component="FormComponent"
+  data-prop-form-title="Personal Information"
+  data-r-prop-form-data='formData'></div>
+```
+
+Then, we can access it through props.
+
+We updating window object or using props.proxy to update the data does not re-render components. Neither of them doesn't trigger React component update.
+
+```js
+props.proxy.formData = {
+  firstName,
+  lastName,
+  email,
+  mobile,
+  favouriteFramework,
+};
+
+global.window.formData = {
+  firstName,
+  lastName,
+  email,
+  mobile,
+  favouriteFramework,
+};
+```
 
 # REFERENCES
 

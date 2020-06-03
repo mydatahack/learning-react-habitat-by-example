@@ -1,10 +1,11 @@
 /* eslint-disable react/no-this-in-sfc */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import TextInput from './components/TextInput';
 import SelectInput from './components/SelectInput';
 import Button from './components/Button';
 import { fwOptions } from './constants';
+
 
 const FormComponent = (props) => {
   const { formTitle, formData } = props;
@@ -14,9 +15,12 @@ const FormComponent = (props) => {
   const [mobile, setMobile] = useState(formData.mobile);
   const [favouriteFramework, setFavouriteFramework] = useState(formData.favouriteFramework);
 
-  // console.log('checking form data: ', favouriteFramework);
-  console.log('check global form data: ', formData);
-
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    window.updateHabitat();
+    console.log('component mounted or updated for FormComponent');
+    console.log('check global form data: ', formData);
+  });
 
   return (
     <form>
@@ -24,7 +28,11 @@ const FormComponent = (props) => {
       <TextInput
         inputFor="firstName"
         inputLabel="First Name"
-        onChangeHandler={(e) => setFirstname(e.target.value)}
+        onChangeHandler={(e) => {
+          setFirstname(e.target.value);
+          // eslint-disable-next-line no-param-reassign
+          props.proxy.firstName = e.target.value;
+        }}
         value={firstName}
       />
       <TextInput
@@ -64,9 +72,21 @@ const FormComponent = (props) => {
           props.proxy.formData = {
             firstName,
             lastName,
+            email,
             mobile,
             favouriteFramework,
           };
+          global.window.formData = {
+            firstName,
+            lastName,
+            email,
+            mobile,
+            favouriteFramework,
+          };
+          // eslint-disable-next-line no-undef
+          window.updateHabitat();
+          console.log(props.proxy.formData);
+          console.log(global.window.formData);
         }}
       />
     </form>
